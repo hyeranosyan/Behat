@@ -116,6 +116,8 @@ final class FeatureElementListener implements EventListener
         }
 
         $this->beforeFeatureTestedEvent = $event->getFeature();
+        $this->afterScenarioTestedEvents = array();
+        $this->afterStepTestedEvents = array();
     }
 
     /**

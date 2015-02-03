@@ -88,9 +88,11 @@ class JUnitOutputPrinter extends ConsoleOutputPrinter
      */
     public function addTestcase(array $testcaseAttributes = array())
     {
-        $this->currentTestcase = $this->domDocument->createElement('testcase');
-        $this->currentTestsuite->appendChild($this->currentTestcase);
-        $this->addAttributesToNode($this->currentTestcase, $testcaseAttributes);
+        if (strcmp($testcaseAttributes['featureTitle'], $this->currentTestsuite->getAttribute('name')) == 0) {
+            $this->currentTestcase = $this->domDocument->createElement('testcase');
+            $this->currentTestsuite->appendChild($this->currentTestcase);
+            $this->addAttributesToNode($this->currentTestcase, $testcaseAttributes);
+        }
     }
 
     /**

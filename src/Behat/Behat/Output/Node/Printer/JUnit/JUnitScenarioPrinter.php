@@ -72,7 +72,8 @@ final class JUnitScenarioPrinter implements ScenarioElementPrinter
 
         $outputPrinter->addTestcase(array(
             'name' => $name,
-            'status' => $this->resultConverter->convertResultToString($result)
+            'status' => $this->resultConverter->convertResultToString($result),
+            'featureTitle' => $feature->getTitle(),
         ));
     }
 
